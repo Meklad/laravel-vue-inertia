@@ -17,14 +17,16 @@ class UserFactory extends Factory
      */
     public function definition()
     {
+        $email = fake()->unique()->safeEmail();
         return [
             'name' => fake()->name(),
-            'email' => fake()->unique()->safeEmail(),
+            'email' => $email,
             'email_verified_at' => now(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'is_active' => fake()->boolean(),
             'remember_token' => Str::random(10),
-            'stripe_token' => "$2y$" . Str::random(60)
+            'stripe_token' => "$2y$" . Str::random(60),
+            'avatar' => 'https://www.gravatar.com/avatar/' . md5(strtolower(trim($email))) . '?d=identicon'
         ];
     }
 
