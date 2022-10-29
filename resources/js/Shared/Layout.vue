@@ -1,9 +1,14 @@
 <template>
     <section class="p-6 bg-gray-200">
         <header class="flex justify-between">
-            <h1 class="font-bold text-lg">
-                {{ appName }}
-            </h1>
+            <div class="flex items-center">
+                <h1 class="font-bold text-lg">
+                    {{ appName }}
+                </h1>
+                <p class="text-ms ml-1">
+                    Welcome Back, {{ user.name }}
+                </p>
+            </div>
             <Nav />
         </header>
     </section>
@@ -24,6 +29,9 @@
         computed: {
             appName() {
                 return this.$page.props.appName
+            },
+            user() {
+                return this.$page.props.user
             }
         }
     };
