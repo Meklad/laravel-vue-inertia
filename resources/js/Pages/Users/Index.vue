@@ -68,7 +68,7 @@
 <script setup>
     import { Link } from '@inertiajs/inertia-vue3'
     import { Inertia } from '@inertiajs/inertia';
-    import Paginator from '../Shared/Paginator.vue';
+    import Paginator from '../../Shared/Paginator.vue';
     import { ref, watch } from 'vue';
 
     let props = defineProps({
