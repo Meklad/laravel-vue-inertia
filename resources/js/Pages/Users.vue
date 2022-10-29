@@ -4,7 +4,10 @@
         <meta name="title" content="Users Page" head-key="title">
         <meta name="description" content="Users Page Content" head-key="description">
     </Head>
-    <h1 class="text-3xl mb-6">Users</h1>
+    <div class="flex justify-between mb-6">
+        <h1 class="text-3xl">Users</h1>
+        <input v-model="search" type="text" placeholder="search ..." class="border px-3 rounded-lg">
+    </div>
     <div class="flex flex-col">
         <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
             <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
@@ -64,6 +67,21 @@
 
 <script setup>
     import { Link } from '@inertiajs/inertia-vue3'
-    import Paginator from '../Shared/Paginator.vue'
-    defineProps({users: Object})
+    import { Inertia } from '@inertiajs/inertia';
+    import Paginator from '../Shared/Paginator.vue';
+    import { ref, watch } from 'vue';
+
+    let props = defineProps({
+        users: Object,
+        filters: Object
+    });
+
+    let search = ref(props.filters.search);
+
+    watch(search, value => {
+        Inertia.get('/users', { search: value }, {
+            preserveState: true,
+            replace: true
+        });
+    })
 </script>
