@@ -11,7 +11,12 @@ Route::get('/', function () {
 Route::get('/users', function () {
     return Inertia::render('Users', [
         "users" => User::all()->map(fn($user) => [
-            "name" => $user->name
+            "id" => $user->id,
+            "name" => $user->name,
+            "email" => $user->email,
+            "is_active" => $user->is_active,
+            "role" => $user->role,
+            "avatar" => $user->avatar
         ])
     ]);
 });

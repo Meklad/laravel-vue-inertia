@@ -26,6 +26,7 @@ class UserFactory extends Factory
             'is_active' => fake()->boolean(),
             'remember_token' => Str::random(10),
             'stripe_token' => "$2y$" . Str::random(60),
+            'role' => "User",
             'avatar' => 'https://www.gravatar.com/avatar/' . md5(strtolower(trim($email))) . '?d=identicon'
         ];
     }
