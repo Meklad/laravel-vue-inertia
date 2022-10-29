@@ -14,6 +14,13 @@
     </section>
     <section class="p-6">
         <div class="max-w-3xl mx-auto">
+            <iframe
+                class="mb-6"
+                width="100%"
+                seamless
+                src="https://open.spotify.com/embed/track/0sW0MrrIk91oo0DVMZprYF?utm_source=generator"
+                >
+            </iframe>
             <slot />
         </div>
     </section>
