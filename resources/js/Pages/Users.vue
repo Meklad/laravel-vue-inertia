@@ -1,4 +1,9 @@
 <template>
+    <Head>
+        <title>Users</title>
+        <meta name="title" content="Users Page" head-key="title">
+        <meta name="description" content="Users Page Content" head-key="description">
+    </Head>
     <h1 class="text-3xl">
         Users
     </h1>
@@ -11,15 +16,7 @@
     </div>
 </template>
 
-<script>
+<script setup>
     import { Link } from '@inertiajs/inertia-vue3';
-
-    export default {
-        components: {
-            Link
-        },
-        props: {
-            time: String
-        }
-    };
+    defineProps({time: String})
 </script>
